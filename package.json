@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest --passWithNoTests",
     "test:watch": "yarn clear && yarn test -- --watch",
-    "test:stage": "yarn clear && yarn test -- --findRelatedTests",
+    "test:staged": "yarn clear && yarn test -- --findRelatedTests",
     "test:ci": "yarn clear && yarn test -- --coverage",
     "clear": "jest --ClearCache"
   },
