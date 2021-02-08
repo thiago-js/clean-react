@@ -1,4 +1,5 @@
 import { HttpPostClient } from '../../interfaces/http-post-client'
+
 export class RemoteAuthentication {
   constructor (
     private readonly url: string,
