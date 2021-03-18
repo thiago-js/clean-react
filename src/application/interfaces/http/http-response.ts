@@ -9,6 +9,6 @@ export enum HttpStatusCode {
 }
 
 export type HttpResponse<T> = {
-  stastusCode: HttpStatusCode
+  statusCode: HttpStatusCode
   body?: T
 }
