@@ -39,7 +39,7 @@ describe('RemoteAuthentication', () => {
   test('should throw InvalidCredentialErrors if httpPostClient return 401', async () => {
     const { sut, httpPostClientSpy } = makeSut()
     httpPostClientSpy.response = {
-      stastusCode: HttpStatusCode.unauthorized
+      statusCode: HttpStatusCode.unauthorized
     }
     const promise = sut.auth(mockAuthentication())
     await expect(promise).rejects.toThrow(new InvalidCredentialsError())
@@ -48,7 +48,7 @@ describe('RemoteAuthentication', () => {
   test('should throw UnexpectedErrors if httpPostClient return 400', async () => {
     const { sut, httpPostClientSpy } = makeSut()
     httpPostClientSpy.response = {
-      stastusCode: HttpStatusCode.badRequest
+      statusCode: HttpStatusCode.badRequest
     }
     const promise = sut.auth(mockAuthentication())
     await expect(promise).rejects.toThrow(new UnexpectedError())
@@ -57,7 +57,7 @@ describe('RemoteAuthentication', () => {
   test('should throw UnexpectedErrors if httpPostClient return 404', async () => {
     const { sut, httpPostClientSpy } = makeSut()
     httpPostClientSpy.response = {
-      stastusCode: HttpStatusCode.notFound
+      statusCode: HttpStatusCode.notFound
     }
     const promise = sut.auth(mockAuthentication())
     await expect(promise).rejects.toThrow(new UnexpectedError())
@@ -66,7 +66,7 @@ describe('RemoteAuthentication', () => {
   test('should throw UnexpectedErrors if httpPostClient return 500', async () => {
     const { sut, httpPostClientSpy } = makeSut()
     httpPostClientSpy.response = {
-      stastusCode: HttpStatusCode.serverError
+      statusCode: HttpStatusCode.serverError
     }
     const promise = sut.auth(mockAuthentication())
     await expect(promise).rejects.toThrow(new UnexpectedError())
@@ -76,7 +76,7 @@ describe('RemoteAuthentication', () => {
     const { sut, httpPostClientSpy } = makeSut()
     const httpResult = mockAccountModel()
     httpPostClientSpy.response = {
-      stastusCode: HttpStatusCode.ok,
+      statusCode: HttpStatusCode.ok,
       body: httpResult
     }
     const account = await sut.auth(mockAuthentication())
